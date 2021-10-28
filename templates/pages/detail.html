@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<a class="btn btn-secondary btn-sm mb-3" href="{% url 'locdata:index' %}">Back To Raw Data</a>
+<h1 class="text-center mb-3">{{ dpf.stampedtime }}</h1>
+
+{% if error_message %}
+<p class="alert alert-danger">
+	<strong>{{ error_message }}</strong>
+</p>
+{% endif %}
+
+<dl class="dl-horizontal">
+  <dt>Time Stamp</dt>
+  <dd>{{dp.stampedtime}}</dd>
+  <dt>Asset</dt>
+  <dd>{{dp.asset}}</dd>
+  <dt>Room</dt>
+  <dd>{{dp.room}}</dd>
+  <dt>NodeID</dt>
+  <dd>{{dp.nodeid}}</dd>
+    <dt>BadgeID</dt>
+  <dd>{{dp.badgeid}}</dd>
+    <dt>Data Entry ID</dt>
+  <dd>{{dp.id}}</dd>
+</dl>
+
+<!--<form action="{% url 'locdata:index' %}" method="post">-->
+<!--	{% csrf_token %}-->
+<!--		<div class="form-check">-->
+<!--			<input-->
+<!--				type="radio"-->
+<!--				name="choice"-->
+<!--				class="form-check-input"-->
+<!--				id="choice"-->
+<!--				value="{{ dp.id }}"-->
+<!--			/>-->
+<!--			<label for="choice">{{ dp.asset }}</label-->
+<!--			>-->
+<!--		</div>-->
+<!--	<input type="submit" value="Vote" class="btn btn-success btn-lg btn-block mt-4" />-->
+<!--</form>-->
+{% endblock %}

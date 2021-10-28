@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="text-center mb-3">Raw Data</h1>
+  {% if raw_data_list %}
+    {% for dataentry in raw_data_list %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <p class="lead">{{ dataentry.stampedtime }} , {{ dataentry.asset }} , {{ dataentry.room }}</p>
+          <a href="{% url 'locdata:detail' dataentry.id %}" class="btn btn-primary btn-sm">View</a>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No polls available</p>
+  {% endif %}
+{% endblock %}
